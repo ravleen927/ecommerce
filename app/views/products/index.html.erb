@@ -1,0 +1,32 @@
+<!-- app/views/products/index.html.erb -->
+
+<%= form_tag(search_path, method: :get) do %>
+  <%= text_field_tag :query, params[:query], placeholder: "Enter keyword" %>
+  <%= select_tag :category_id, options_for_select(Category.all.map { |c| [c.name, c.id] }, params[:category_id]), prompt: "Select category" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<h2>Products on Sale</h2>
+<% @products_on_sale.each do |product| %>
+
+  <div class="product-card">
+    <h3><a href="<%= product_path(product) %>"><%= product.name %></a></h3>
+    <!-- Add more details here as needed -->
+    <p><%= product.description %></p>
+    <%= button_to "Add to Cart", add_to_cart_path(product), method: :post, class: "add-to-cart-btn" %>
+  </div>
+<% end %>
+
+<h2>New Products</h2>
+<% if @new_products.present? %>
+  <% @new_products.each do |product| %>
+    <div class="product-card">
+      <h3><a href="<%= product_path(product) %>"><%= product.name %></a></h3>
+      <!-- Add more details here as needed -->
+      <p><%= product.description %></p>
+      <%= button_to "Add to Cart", add_to_cart_path(product), method: :post, class: "add-to-cart-btn" %>
+    </div>
+  <% end %>
+<% else %>
+  <p>No new products found</p>
+<% end %>

@@ -1,0 +1,11 @@
+<h1>Users</h1>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <strong>Email:</strong> <%= user.email %><br>
+      <strong>Address:</strong> <%= user.address.try(:name) || "N/A" %><br>
+      <strong>Province:</strong> <%= user.province.try(:name) || "N/A" %>
+    </li>
+  <% end %>
+</ul>

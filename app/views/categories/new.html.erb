@@ -1,0 +1,21 @@
+<!-- app/views/categories/new.html.erb -->
+<%= form_with(model: @category, url: categories_path) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+  
+  <%= form.submit %>
+<% end %>
+
+<!-- app/views/categories/edit.html.erb -->
+<%= form_with(model: @category, url: category_path(@category), method: :patch) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+  
+  <%= form.submit %>
+<% end %>

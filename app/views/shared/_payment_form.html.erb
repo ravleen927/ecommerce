@@ -1,0 +1,9 @@
+<%= form_for @payment, url: checkout_path do |f| %>
+  <!-- Payment form fields go here -->
+  <%= f.label :card_number %>
+  <%= f.text_field :card_number %>
+
+  <!-- Other payment form fields -->
+
+  <%= f.submit "Submit Payment" %>
+<% end %>

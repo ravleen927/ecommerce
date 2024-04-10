@@ -1,0 +1,42 @@
+<h1>Edit Product</h1>
+
+<%= form_for @product, html: { multipart: true } do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    <% if @product.image.attached? %>
+      <%= image_tag url_for(@product.image) %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update Product" %>
+  </div>
+  <%= form_for @product, url: admin_product_path(@product), method: :patch do |form| %>
+  <!-- Other form fields -->
+  <div class="form-group">
+    <%= form.label :on_sale %>
+    <%= form.check_box :on_sale %>
+  </div>
+  <!-- Submit button -->
+  <%= form.submit "Update Product", class: "btn btn-primary" %>
+  
+<% end %>
+<% end %>

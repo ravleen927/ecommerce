@@ -1,0 +1,6 @@
+<!-- app/views/admin/pages/about.html.erb -->
+<%= form_for @about_page, url: admin_about_page_path, method: :put do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit "Update About Page" %>
+<% end %>

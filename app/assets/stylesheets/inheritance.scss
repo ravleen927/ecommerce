@@ -1,0 +1,87 @@
+// Base styles for all links
+a {
+    color: blue; // Change color as needed
+    text-decoration: none;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  // Styles for the product grid
+  .products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  
+    .product-card {
+      width: calc(33.33% - 20px); // Adjust width as needed
+      margin-bottom: 20px;
+      border: 1px solid #ccc; // Example border style
+  
+      .product-image {
+        position: relative;
+  
+        .placeholder-image {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: #f0f0f0; // Example background color
+          padding: 10px;
+        }
+      }
+  
+      .product-details {
+        padding: 10px;
+  
+        h2 {
+          font-size: 1.2rem; // Example font size
+          margin-bottom: 10px;
+        }
+  
+        button {
+          background-color: green; // Example button color
+          color: white;
+          padding: 8px 16px;
+          border: none;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+  
+          &:hover {
+            background-color: darkgreen; // Example button hover color
+          }
+        }
+      }
+    }
+  }
+  
+  // Pagination styles
+  .pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+  
+    li {
+      margin: 0 5px;
+  
+      a {
+        padding: 5px 10px;
+        border: 1px solid #ccc; // Example border color
+  
+        &:hover {
+          background-color: #f0f0f0; // Example background color on hover
+        }
+      }
+  
+      &.active {
+        a {
+          font-weight: bold;
+          background-color: blue; // Example background color for active page
+          color: white;
+        }
+      }
+    }
+  }
+  

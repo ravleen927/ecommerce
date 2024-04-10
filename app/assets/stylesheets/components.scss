@@ -1,0 +1,14 @@
+// app/assets/stylesheets/components.scss
+
+// Import variables
+@import "variables";
+
+// Use the variables
+.button {
+  padding: 10px 20px;
+  background-color: $primary-color; // Use the defined variable here
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

@@ -1,0 +1,38 @@
+<h1>Cart</h1>
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+<% if @cart_products.any? %>
+  <ul>
+    <% @cart_products.each do |product| %>
+      <li>
+        <% if product.image.attached? %>
+          <%= image_tag product.image, alt: product.name, style: 'max-width: 100px;' %>
+        <% else %>
+          <div class="placeholder-image">No Image Available</div>
+        <% end %>
+        <!-- Make the product name clickable -->
+        <%= link_to product.name, product_path(product) %>
+        
+        <!-- Form for updating item quantity -->
+        <%= form_tag update_quantity_path, method: :patch do %>
+          <%= hidden_field_tag :product_id, product.id %>
+          <%= number_field_tag :quantity, (session[:cart][product.id] || 1), class: 'form-control', min: 1, size: 2 %>
+          <%= submit_tag 'Update', class: 'btn btn-primary mt-2' %>
+        <% end %>
+        
+        <!-- Form for removing item -->
+        <%= form_tag remove_item_path, method: :get, class: 'd-inline' do %>
+          <%= submit_tag 'Remove', class: 'btn btn-danger mt-3' %>
+          <input type='hidden' name = 'product_id' value="<%=product.id%>">
+        <% end %>
+        
+        <!-- Proceed to Checkout button -->
+        <%= link_to "Proceed to Checkout", checkout_path, class: "btn btn-primary" %>
+      </li>
+      <!-- Add more product details if needed -->
+    <% end %>
+  </ul>
+<% else %>
+  <p>Your cart is empty.</p>
+<% end %>

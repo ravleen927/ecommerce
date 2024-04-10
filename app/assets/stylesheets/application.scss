@@ -1,0 +1,65 @@
+// app/assets/stylesheets/application.scss
+
+// Import other SCSS files
+@import "variables"; // Import SCSS variables
+@import "layout";    // Import layout styles
+@import "components"; // Import component styles
+@import "operators";
+
+// Import inheritance
+@import "inheritance";
+
+// Import nesting
+@import "nesting";
+
+// Import any other SCSS files as needed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Styles for product cards */
+.product-card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 300px; /* Adjust width as needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensure that the image does not overflow the card */
+}
+
+.product-card .product-image {
+  text-align: center; /* Center align the image */
+}
+
+.product-card .product-image img {
+  max-width: 100%; /* Ensure that the image fits within the card */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.product-card .product-details {
+  padding-top: 10px; /* Add spacing between image and details */
+}
+
+.product-card .product-details h2 {
+  margin: 0; /* Remove default margin for consistency */
+}
+
+.product-card .product-details .add-to-cart-btn {
+  display: block; /* Make the button full width */
+  margin-top: 10px; /* Add spacing below product name */
+}
+
+

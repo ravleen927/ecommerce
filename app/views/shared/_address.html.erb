@@ -1,0 +1,11 @@
+<!-- shared/_address.html.erb -->
+
+<% if address %>
+  <p><strong>Name:</strong> <%= address.name %></p>
+  <p><strong>Address:</strong> <%= address.street_address %></p>
+  <p><strong>City:</strong> <%= address.city %></p>
+  <p><strong>Province:</strong> <%= address.province %></p>
+  <p><strong>Postal Code:</strong> <%= address.postal_code %></p>
+<% else %>
+  <p>No address found.</p>
+<% end %>

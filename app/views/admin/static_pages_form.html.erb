@@ -1,0 +1,8 @@
+# app/views/admin/static_pages_form.html.erb
+<% content = File.read(Rails.root.join('app', 'views', 'pages', "#{page_name}.html.erb")) rescue "" %>
+
+<%= form_for :content, url: admin_static_pages_path, method: :put do |f| %>
+  <%= f.label "#{page_name}_content".to_sym, "#{page_name.capitalize} Page Content".humanize %>
+  <%= f.text_area "#{page_name}_content".to_sym, value: content, class: "text-area" %>
+  <%= f.submit "Save #{page_name.capitalize} Page Content", class: "button" %>
+<% end %>
