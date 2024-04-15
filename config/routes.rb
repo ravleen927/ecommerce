@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   post 'products/:id/add_to_cart', to: 'products#add_to_cart', as: 'add_to_cart'
   get 'cart/success', to: 'cart#success', as: 'cart_success'
   
+  
   # Cart routes
   get 'cart', to: 'cart#show'
   resource :cart, only: [:show,:update]
