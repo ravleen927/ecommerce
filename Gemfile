@@ -17,6 +17,7 @@ gem 'kaminari'
 gem 'sass-rails', '~> 6.0'
 gem 'mini_magick'
 gem 'image_processing'
+gem 'rubocop', require: false
 
 gem 'countries'
 
